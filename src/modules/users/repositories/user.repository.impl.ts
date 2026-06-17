@@ -34,7 +34,7 @@ class UserRepositoryImpl implements IUserRepository {
   private readonly findAllUsersUserRepository: FindAllUsersRepository;
 
   constructor(auth: Auth, prisma: PrismaClient) {
-    this.createUserRepository = new CreateUserRepository(auth);
+    this.createUserRepository = new CreateUserRepository(auth, prisma);
     this.findUserByEmailRepository = new FindUserByEmailRepository(prisma);
     this.findAllUsersUserRepository = new FindAllUsersRepository(prisma);
   }

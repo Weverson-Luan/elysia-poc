@@ -5,6 +5,7 @@ export const en: Messages = {
     failed: "Invalid data",
     required: "{field} is required",
     invalidEmail: "Invalid email",
+    invalidPhone: "Invalid phone number",
     minLength: "{field} must be at least {min} characters",
     invalidType: "{field} has an invalid value",
   },
@@ -12,11 +13,13 @@ export const en: Messages = {
     name: "Name",
     email: "Email",
     password: "Password",
+    phone: "Phone",
   },
   errors: {
     userAlreadyExists: "User already exists",
     invalidUserData: "Invalid user data",
     unauthorized: "Unauthorized",
+    rateLimitExceeded: "Please wait a few minutes before requesting again.",
     internalServerError: "Internal server error",
   },
   success: {
@@ -25,5 +28,7 @@ export const en: Messages = {
     userCreated: "User created successfully",
     userProfile: "Profile returned successfully",
     usersList: "Users list returned successfully",
+    credentialsSent:
+      "If this email exists in our system, you will receive your access credentials shortly.",
   },
 };

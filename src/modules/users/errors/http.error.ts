@@ -8,6 +8,7 @@ import { getMessages } from "../../../http/i18n";
 import { DEFAULT_LOCALE, type Locale } from "../../../http/i18n/locale";
 import {
   InvalidUserDataError,
+  RateLimitExceededError,
   UserAlreadyExistsError,
 } from "../entities/user.errors";
 
@@ -37,6 +38,8 @@ export function resolveHttpErrorMessage(
       return fallback ?? messages.errors.invalidUserData;
     case API_ERROR_CODES.UNAUTHORIZED:
       return messages.errors.unauthorized;
+    case API_ERROR_CODES.RATE_LIMIT_EXCEEDED:
+      return messages.errors.rateLimitExceeded;
     case API_ERROR_CODES.INTERNAL_SERVER_ERROR:
       return messages.errors.internalServerError;
     default:
@@ -51,6 +54,10 @@ export function mapUserErrorToHttp(error: unknown): never {
 
   if (error instanceof InvalidUserDataError) {
     throw new HttpError(400, API_ERROR_CODES.INVALID_USER_DATA, error.message);
+  }
+
+  if (error instanceof RateLimitExceededError) {
+    throw new HttpError(429, API_ERROR_CODES.RATE_LIMIT_EXCEEDED, "");
   }
 
   if (error instanceof HttpError) {

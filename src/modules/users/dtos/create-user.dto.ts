@@ -20,6 +20,12 @@ export const createUserBodySchema = t.Object({
     minLength: 8,
     error: "validation.fields.password.minLength",
   }),
+  phone: t.Optional(
+    t.String({
+      pattern: "^[0-9]{10,15}$",
+      error: "validation.fields.phone.invalidPhone",
+    }),
+  ),
 });
 
 export type CreateUserRequestDto = typeof createUserBodySchema.static;

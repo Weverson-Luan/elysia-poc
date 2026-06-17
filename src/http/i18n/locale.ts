@@ -5,6 +5,7 @@ export type Messages = {
     failed: string;
     required: string;
     invalidEmail: string;
+    invalidPhone: string;
     minLength: string;
     invalidType: string;
   };
@@ -13,6 +14,7 @@ export type Messages = {
     userAlreadyExists: string;
     invalidUserData: string;
     unauthorized: string;
+    rateLimitExceeded: string;
     internalServerError: string;
   };
   success: {
@@ -21,6 +23,7 @@ export type Messages = {
     userCreated: string;
     userProfile: string;
     usersList: string;
+    credentialsSent: string;
   };
 };
 

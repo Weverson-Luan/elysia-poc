@@ -11,3 +11,10 @@ export class InvalidUserDataError extends Error {
     this.name = "InvalidUserDataError";
   }
 }
+
+export class RateLimitExceededError extends Error {
+  constructor() {
+    super("Rate limit exceeded");
+    this.name = "RateLimitExceededError";
+  }
+}

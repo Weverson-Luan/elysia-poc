@@ -36,6 +36,7 @@ function createGetMeRoute() {
           name: user.name,
           email: user.email,
           emailVerified: user.emailVerified,
+          phone: null,
           createdAt: new Date(user.createdAt),
         }),
       );

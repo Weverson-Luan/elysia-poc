@@ -2,6 +2,7 @@ export type CreateUserInput = {
   name: string;
   email: string;
   password: string;
+  phone?: string;
 };
 
 export type User = {
@@ -9,5 +10,6 @@ export type User = {
   name: string;
   email: string;
   emailVerified: boolean;
+  phone: string | null;
   createdAt: Date;
 };

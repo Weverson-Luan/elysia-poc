@@ -5,6 +5,9 @@
 // auth
 import type { auth } from "@/modules/auth/auth-main";
 
+// lib
+import type { PrismaClient } from "@prisma/client";
+
 // entities
 import type {
   CreateUserInput,
@@ -23,10 +26,14 @@ type Auth = typeof auth;
 /**
  * Repositório para criar um novo usuário
  * @param auth - Autenticação
+ * @param prisma - Prisma Client
  * @returns
  */
 class CreateUserRepository implements ICreateUserRepository {
-  constructor(private readonly auth: Auth) {}
+  constructor(
+    private readonly auth: Auth,
+    private readonly prisma: PrismaClient,
+  ) {}
 
   async execute(input: CreateUserInput): Promise<User> {
     try {
@@ -37,6 +44,15 @@ class CreateUserRepository implements ICreateUserRepository {
           password: input.password,
         },
       });
+
+      if (input.phone) {
+        const updated = await this.prisma.user.update({
+          where: { id: result.user.id },
+          data: { phone: input.phone },
+        });
+
+        return toUserEntity(updated);
+      }
 
       return toUserEntity(result.user);
     } catch (error) {
