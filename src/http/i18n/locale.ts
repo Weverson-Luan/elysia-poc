@@ -12,6 +12,7 @@ export type Messages = {
   fields: Record<string, string>;
   errors: {
     userAlreadyExists: string;
+    userNotFound: string;
     invalidUserData: string;
     unauthorized: string;
     rateLimitExceeded: string;
@@ -22,6 +23,7 @@ export type Messages = {
     userRegistered: string;
     userCreated: string;
     userProfile: string;
+    userUpdated: string;
     usersList: string;
     credentialsSent: string;
   };

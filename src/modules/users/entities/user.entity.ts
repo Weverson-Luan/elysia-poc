@@ -5,6 +5,11 @@ export type CreateUserInput = {
   phone?: string;
 };
 
+export type UpdateUserInput = {
+  name?: string;
+  phone?: string | null;
+};
+
 export type User = {
   id: string;
   name: string;

@@ -10,6 +10,7 @@ import {
   InvalidUserDataError,
   RateLimitExceededError,
   UserAlreadyExistsError,
+  UserNotFoundError,
 } from "../entities/user.errors";
 
 export class HttpError extends Error {
@@ -34,6 +35,8 @@ export function resolveHttpErrorMessage(
   switch (code) {
     case API_ERROR_CODES.USER_ALREADY_EXISTS:
       return messages.errors.userAlreadyExists;
+    case API_ERROR_CODES.USER_NOT_FOUND:
+      return messages.errors.userNotFound;
     case API_ERROR_CODES.INVALID_USER_DATA:
       return fallback ?? messages.errors.invalidUserData;
     case API_ERROR_CODES.UNAUTHORIZED:
@@ -50,6 +53,10 @@ export function resolveHttpErrorMessage(
 export function mapUserErrorToHttp(error: unknown): never {
   if (error instanceof UserAlreadyExistsError) {
     throw new HttpError(409, API_ERROR_CODES.USER_ALREADY_EXISTS, "");
+  }
+
+  if (error instanceof UserNotFoundError) {
+    throw new HttpError(404, API_ERROR_CODES.USER_NOT_FOUND, "");
   }
 
   if (error instanceof InvalidUserDataError) {

@@ -1,5 +1,7 @@
 import { sendEmail } from "./email-notifier";
-import { sendWhatsApp } from "./whatsapp-notifier";
+import { ZApiNotificationGateway } from "./whatsapp-notifier";
+
+const whatsappGateway = new ZApiNotificationGateway();
 
 type DeliverCredentialsInput = {
   name: string;
@@ -36,9 +38,9 @@ async function deliverCredentials(
   });
 
   if (input.phone) {
-    await sendWhatsApp({
+    await whatsappGateway.sendWhatsapp({
       phone: input.phone,
-      text: message,
+      message,
     });
   }
 }

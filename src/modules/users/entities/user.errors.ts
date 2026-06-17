@@ -18,3 +18,10 @@ export class RateLimitExceededError extends Error {
     this.name = "RateLimitExceededError";
   }
 }
+
+export class UserNotFoundError extends Error {
+  constructor() {
+    super("User not found");
+    this.name = "UserNotFoundError";
+  }
+}

@@ -2,7 +2,7 @@
  * IMPORTS
  */
 
-import type { CreateUserInput, User } from "../entities/user.entity";
+import type { CreateUserInput, UpdateUserInput, User } from "../entities/user.entity";
 import type { PaginatedData } from "../../../http/types/api-response";
 import type { PaginationParams } from "../../../http/types/pagination";
 
@@ -16,6 +16,7 @@ interface IUserRepository {
   create(input: CreateUserInput): Promise<User>;
   findByEmail(email: string): Promise<User | null>;
   findAll(params: PaginationParams): Promise<PaginatedData<User>>;
+  update(userId: string, input: UpdateUserInput): Promise<User | null>;
 }
 
 /**

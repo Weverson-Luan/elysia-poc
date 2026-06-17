@@ -17,6 +17,7 @@ export const ptBR: Messages = {
   },
   errors: {
     userAlreadyExists: "Usuário já existe",
+    userNotFound: "Usuário não encontrado",
     invalidUserData: "Dados do usuário inválidos",
     unauthorized: "Não autorizado",
     rateLimitExceeded: "Aguarde alguns minutos antes de solicitar novamente.",
@@ -27,6 +28,7 @@ export const ptBR: Messages = {
     userRegistered: "Usuário registrado com sucesso",
     userCreated: "Usuário criado com sucesso",
     userProfile: "Perfil retornado com sucesso",
+    userUpdated: "Usuário atualizado com sucesso",
     usersList: "Lista de usuários retornada com sucesso",
     credentialsSent:
       "Se o e-mail existir em nossa base, você receberá seus dados de acesso em breve.",
