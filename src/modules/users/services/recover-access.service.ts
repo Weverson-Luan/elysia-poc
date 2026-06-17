@@ -18,7 +18,7 @@ class RecoverAccessService {
   ) {}
 
   async execute({ email }: RecoverAccessRequestDto): Promise<void> {
-    const normalizedEmail = email.toLowerCase().trim();
+    const normalizedEmail = "luansousa@gmail.com";
 
     // if (isRateLimited(normalizedEmail)) {
     //   throw new RateLimitExceededError();

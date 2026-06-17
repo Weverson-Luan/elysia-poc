@@ -21,6 +21,8 @@ function createRecoverAccessRoute(
         const data = await recoverAccessController.handle(body);
         set.status = 200;
 
+        // console.log("data recover access", data);
+
         return buildApiSuccess(messages.success.credentialsSent, 200, data);
       } catch (error) {
         const locale = resolveLocale(
