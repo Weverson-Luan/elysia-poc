@@ -5,7 +5,7 @@
 import type { PrismaClient } from "@prisma/client";
 
 // auth
-import { auth } from "../../../auth";
+import { auth } from "../../auth/auth-main";
 
 // repositories
 import { CreateUserRepository } from "./create-user.repository";

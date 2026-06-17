@@ -1,5 +1,10 @@
+/**
+ * IMPORTS
+ */
+
 import { t } from "elysia";
-import type { User } from "../entities/user.entity";
+import { User } from "../entities/user.entity";
+
 import { toUserResponseDto, type UserResponseDto } from "./user-response.dto";
 
 export const createUserBodySchema = t.Object({

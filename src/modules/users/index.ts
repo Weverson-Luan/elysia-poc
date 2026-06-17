@@ -2,7 +2,7 @@
  * IMPORTS
  */
 
-import { auth } from "../../auth";
+import { auth } from "../auth/auth-main";
 import { prisma } from "../../lib/prisma";
 
 // controllers

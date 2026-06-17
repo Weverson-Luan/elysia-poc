@@ -3,7 +3,7 @@
  */
 
 // auth
-import type { auth } from "@/auth";
+import type { auth } from "@/modules/auth/auth-main";
 
 // entities
 import type {
