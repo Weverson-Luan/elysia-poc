@@ -2,9 +2,9 @@
   "name": "app",
   "version": "1.0.50",
   "scripts": {
-    "dev": "bun run --watch src/index.ts",
-    "start": "bun run src/index.ts",
-    "dev:all": "docker compose up -d && bun run --watch src/index.ts",
+    "dev": "bun run --watch src/server.ts",
+    "start": "bun run src/server.ts",
+    "dev:all": "docker compose up -d && bun run --watch src/server.ts",
     "db:generate": "bunx prisma generate",
     "db:migrate": "bunx prisma migrate dev",
     "db:push": "bunx prisma db push",

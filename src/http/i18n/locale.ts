@@ -13,6 +13,10 @@ export type Messages = {
   errors: {
     userAlreadyExists: string;
     userNotFound: string;
+    ruleAlreadyExists: string;
+    ruleNotFound: string;
+    ruleAlreadyAssigned: string;
+    ruleAssignmentNotFound: string;
     invalidUserData: string;
     unauthorized: string;
     rateLimitExceeded: string;
@@ -26,6 +30,14 @@ export type Messages = {
     userUpdated: string;
     usersList: string;
     credentialsSent: string;
+    ruleCreated: string;
+    rulesList: string;
+    ruleReturned: string;
+    ruleUpdated: string;
+    ruleDeleted: string;
+    ruleAssigned: string;
+    ruleRevoked: string;
+    userRulesReturned: string;
   };
 };
 

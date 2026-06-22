@@ -18,6 +18,7 @@ model User {
   updatedAt     DateTime  @updatedAt
   sessions      Session[]
   accounts      Account[]
+  rulePermissions UserRulePermission[]
 
   @@unique([email])
   @@map("user")
@@ -57,6 +58,33 @@ model Account {
 
   @@index([userId])
   @@map("account")
+}
+
+model Rule {
+  id          String    @id @default(cuid())
+  name        String
+  description String?
+  resource    String
+  action      String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  permissions UserRulePermission[]
+
+  @@unique([resource, action])
+  @@map("rule")
+}
+
+model UserRulePermission {
+  id        String   @id @default(cuid())
+  userId    String
+  ruleId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  rule      Rule     @relation(fields: [ruleId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, ruleId])
+  @@index([ruleId])
+  @@map("user_rule_permission")
 }
 
 model Verification {
